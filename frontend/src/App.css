@@ -1,0 +1,96 @@
+:root {
+  --light: #f6f6f7;
+  --light-accent: #06b7f7;
+  --light-accent--light: #92d9f3;
+  --light-accent--dark: #018096;
+  --primary: #3e4f6a;
+  --dark: #090e19;
+  --error: #ff6f61;
+  --font-size-sm: 14px;
+  --font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+      sans-serif;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  background: var(--primary);
+  height: 100vh;
+}
+
+
+/* Remove default margins */
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+body,
+pre {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ol,
+ul {
+  margin: 4px;
+}
+
+/* Make Images Block Level */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  align-items: center;
+}
+
+/* Unstyle Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+h1 {
+  font-weight: normal;
+  font-family: Bitter Variable, Georgia, serif;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  position: absolute;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}

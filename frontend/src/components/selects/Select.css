@@ -1,0 +1,14 @@
+.select-wrapper{
+    max-width: 350px;
+    min-width: 350px;
+    margin: 4px;
+}
+
+@media (min-width: 550px) {
+    .select-wrapper{
+        max-width: 500px;
+        min-width: 500px;
+        margin: 4px;
+    }
+    
+}
