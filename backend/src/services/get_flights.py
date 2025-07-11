@@ -31,7 +31,7 @@ def get_flights(start:list[str], date:str, arrival:str, destination:str, key:str
         request_endpoints.append(base_url)
     #thread pool requests to endpoints await result, filter times
     print(request_endpoints)
-    results = fetch_threaded_requests(request_endpoints, key, host, env, arrival, start)
+    results = fetch_threaded_requests(request_endpoints, key, host, env, arrival)
     ## probably need to add this to the threaded requests
     return results
 
@@ -67,7 +67,7 @@ def fetch_threaded_requests(urls, key, host, env, arrival):
             'x-rapidapi-host': host
         }
         response = requests.get(url, headers=headers)
-        filtered_results = filter_suggestions(response.json(), arrival, -filtered_results)
+        filtered_results = filter_suggestions(response.json(), arrival, filtered_results)
         
 
     for url in urls:

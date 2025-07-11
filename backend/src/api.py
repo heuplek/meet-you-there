@@ -11,8 +11,7 @@ load_dotenv(dotenv_path)
 
 app = FastAPI()
 
-origins = os.environ.get("ALLOWED_ORIGINS").split(",") if os.environ.get("ALLOWED_ORIGINS") else [
-    "http://localhost:5173"]
+origins =  ["http://localhost:5174"]
 
 app.add_middleware(
     CORSMiddleware,

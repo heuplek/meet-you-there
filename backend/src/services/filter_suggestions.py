@@ -12,7 +12,7 @@ filter_suggestions
     @desc: Filters flight data based on the specified arrival time
 ===============================================================================
 """
-def filter_suggestions(flight_data: json, arrival_time: str, origin_cities: list[str], filtered_flights: dict) -> dict:
+def filter_suggestions(flight_data: json, arrival_time: str, filtered_flights: dict) -> dict:
     #make sure flight_data length matches origin_cities length
     dummy_date = datetime.now().date()
     arrival_time = datetime.strptime(arrival_time, "%H:%M").time()
@@ -30,7 +30,21 @@ def filter_suggestions(flight_data: json, arrival_time: str, origin_cities: list
         flight_arrival_time = datetime.strptime(flight_arrival, "%Y-%m-%dT%H:%M:%S").time()
         print("Arrival time for this flight is", flight_arrival_time)
         if flight_arrival_time >= start_window and flight_arrival_time <= end_window:
-            filtered_flights[origin].append(flight_offer)
+            print(flight_offer)
+            flight_info = {
+                'flight_id': flight_offer['token'],
+                'arrival_time': flight_offer['segments'][0]['arrivalTime'],
+                'departure_time': flight_offer['segments'][0]['departureTime'],
+                'price': flight_offer['priceBreakdown']['totalRounded']['units'],
+                'currency': flight_offer['priceBreakdown']['totalRounded']['currencyCode'],
+                'origin': flight_offer['segments'][0]['departureAirport']['code'],
+                'destination': flight_offer['segments'][0]['arrivalAirport']['code'],
+                'connections': len(flight_offer['segments'][0]['legs']) - 1,
+                'flight_number': flight_offer['segments'][0]['legs'][0]['flightInfo']['flightNumber'],
+                'airline': flight_offer['segments'][0]['legs'][0]['flightInfo']['carrierInfo']['marketingCarrier'],
+            }
+
+            filtered_flights[origin].append(flight_info)
     
     print("Filtered flights are", filtered_flights)
     

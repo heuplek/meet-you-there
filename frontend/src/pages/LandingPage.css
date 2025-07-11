@@ -1,19 +1,33 @@
-.landing-page {
+.landing_page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: var(--primary);
+}
+.form_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
 }
+.form_container__results{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
 .title{
     font-size: 2rem;
     color: var(--light);
     text-align: center;
     margin-bottom: 20px;
 }
-.pickers-container{
+.pickers_container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,11 +37,11 @@
     .title{
         font-size: 3rem;        
     }
-    .pickers-container{
+    .pickers_container{
         flex-direction: column;
         align-items: center;
     }
-    .pickers-container{
+    .pickers_container{
         flex-direction: row;
     }
     

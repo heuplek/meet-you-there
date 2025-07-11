@@ -36,7 +36,8 @@ export const useGetFlightData = () => {
     } = useMutation({
         mutationFn: () => getFlightData(origins, destination, departureDateString, arrivalTimeString),
         onSuccess: (data) => {
-            console.log(data)
+            //might save it to some state here
+            console.log('Flight data fetched successfully:', data);
         },
         onSettled: () => {},
         onError: (error) => {
